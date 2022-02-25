@@ -50,6 +50,6 @@ func main() {
 }
 
 func displayUser(user User) string {
-	result := fmt.Sprintf("Name : %s %s, Email : %s", user.FirstName, user.LastName, user.Email)
-	return result
+	return fmt.Sprintf("Name : %s %s, Email : %s", user.FirstName, user.LastName, user.Email)
+	
 }
