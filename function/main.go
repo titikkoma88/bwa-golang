@@ -3,12 +3,15 @@ package main
 import "fmt"
 
 func main()  {
-	result := add(10, 20)
-	fmt.Println(result)
+	luas, keliling := calculate(10, 2)
+	fmt.Println(luas)
+	fmt.Println(keliling)
 }
 
-func add(number, numberTwo int) int {
-	return number + numberTwo
-	
+func calculate(panjang int, lebar int) (int, int) {
+	luas := panjang * lebar
+	keliling := 2 * (panjang + lebar)
+
+	return luas, keliling
 }
 
