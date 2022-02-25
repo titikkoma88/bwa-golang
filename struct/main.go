@@ -39,4 +39,17 @@ func main() {
 	fmt.Println(user2)
 	fmt.Println(user3)
 	fmt.Println(user4)
+
+	fmt.Println("===========")
+
+	displayUser1 := displayUser(user)
+	displayUser2 := displayUser(user4)
+
+	fmt.Println(displayUser1)
+	fmt.Println(displayUser2)
+}
+
+func displayUser(user User) string {
+	result := fmt.Sprintf("Name : %s %s, Email : %s", user.FirstName, user.LastName, user.Email)
+	return result
 }
