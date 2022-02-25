@@ -1,21 +1,12 @@
 package main
 
-import "fmt"
-
-type User struct {
-	ID        int
-	FirstName string
-	LastName  string
-	Email     string
-	IsActive  bool
-}
-
-func (user User) display() string {
-	return fmt.Sprintf("Name : %s %s, Email : %s", user.FirstName, user.LastName, user.Email)
-}
+import (
+	"fmt"
+	"struct/management"
+)
 
 func main() {
-	user := User{
+	user := management.User{
 		ID:        1,
 		FirstName: "Waqqosh",
 		LastName:  "Hadjarati",
@@ -23,12 +14,18 @@ func main() {
 		IsActive:  true,
 	}
 
-	result := user.display()
+	result := user.Display()
 
 	fmt.Println(result)
 
-	user2 := User{2, "panji", "Hadjarati", "mail@panjihadjarati.com", true}
-	fmt.Println(user2.display())
+	user2 := management.User{2, "panji", "Hadjarati", "mail@panjihadjarati.com", true}
+	fmt.Println(user2.Display())
 	
+	users :=[]management.User{user, user2}
+
+	group := management.Group{"Programmer", user, users, true}
+
+	group.DisplayGroup()
+
 }
 
