@@ -8,18 +8,17 @@ type Student struct {
 	GPA float32
 }
 
+func (student *Student) graduate()  {
+	student.Name = student.Name + " S.SI"
+
+}
+
 func main()  {
 	student := Student{1, "Panji hadjarati", 3.27}
 
 	fmt.Println(student.Name)
 
-	graduate(&student)
+	student.graduate()
 
 	fmt.Println(student.Name)
-}
-
-func graduate(student *Student)  {
-	student.Name = student.Name + " S.SI"
-	fmt.Println(student.Name)
-
 }
