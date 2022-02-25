@@ -10,46 +10,39 @@ type User struct {
 	IsActive  bool
 }
 
+type Group struct {
+	Name        string
+	Admin       User
+	Users       []User
+	IsAvailable bool
+}
+
 func main() {
-	user := User{}
-	user.ID = 1
-	user.FirstName = "Panji"
-	user.LastName = "Hadjarati"
-	user.Email = "mail@panjihadjarati.com"
-	user.IsActive = true
-
-	user2 := User{}
-	user2.ID = 2
-	user2.FirstName = "Panji"
-	user2.LastName = "Ramadhan"
-	user2.Email = "jie.piranha@gmail.com"
-	user2.IsActive = true
-
-	user3 := User{
-		ID:        3,
+	user := User{
+		ID:        1,
 		FirstName: "Waqqosh",
 		LastName:  "Hadjarati",
 		Email:     "mail@waqqosh.com",
 		IsActive:  true,
 	}
 
-	user4 := User{4, "Shofiyyah", "Hadjarati", "mail@shofiyyah.com", true}
+	user2 := User{2, "panji", "Hadjarati", "mail@panjihadjarati.com", true}
 
-	fmt.Println(user)
-	fmt.Println(user2)
-	fmt.Println(user3)
-	fmt.Println(user4)
+	users := []User{user, user2}
 
-	fmt.Println("===========")
+	group := Group{"Programmer", user, users, true}
 
-	displayUser1 := displayUser(user)
-	displayUser2 := displayUser(user4)
-
-	fmt.Println(displayUser1)
-	fmt.Println(displayUser2)
+	displayGroup(group)
 }
 
-func displayUser(user User) string {
-	return fmt.Sprintf("Name : %s %s, Email : %s", user.FirstName, user.LastName, user.Email)
-	
+func displayGroup(group Group)  {
+	fmt.Printf("Name : %s", group.Name)
+	fmt.Println("")
+	fmt.Printf("Member count : %d", len(group.Users))
+	fmt.Println("")
+
+	fmt.Println("Users name :")
+	for _, user := range group.Users {
+		fmt.Println(user.FirstName)
+	}
 }
