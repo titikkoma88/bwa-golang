@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main()  {
+func main() {
 	var myMap map[string]int
 	myMap = map[string]int{}
 
@@ -14,8 +14,25 @@ func main()  {
 
 	languageMap := map[string]string{
 		"ruby": "is beatifull",
-		"go": "is super fast,",
+		"go":   "is super fast,",
+		"javaScript": "hype",
 	}
 
-	fmt.Println(languageMap)
+	for key, value := range languageMap {
+		fmt.Println("Key : ", key, " value : ", value)
+	}
+
+	fmt.Println("==========")
+
+	delete(languageMap, "go")
+
+	for key, value := range languageMap {
+		fmt.Println("Key : ", key, " value : ", value)
+	}
+
+
+	value, isAvailable := languageMap["python"]
+	fmt.Println(isAvailable)
+	fmt.Println(value)
+
 }
