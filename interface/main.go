@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type Luas interface {
+type BangunDatar interface {
 	HitungLuas() int
 }
 
@@ -24,17 +24,15 @@ func (persegiPanjang PersegiPanjang) HitungLuas() int {
 }
 
 func main() {
-	// bangunDatar := Persegi{Sisi: 4}
-	bangunDatar := PersegiPanjang{Panjang: 6, Lebar: 5}
+	persegiPanjang := PersegiPanjang{Panjang: 6, Lebar: 5}
+	luas := SeberapaLuas(persegiPanjang)
+	fmt.Println("Luas Persegi Panjang: ", luas)
 
-	luas := SeberapaLuas(bangunDatar)
-	fmt.Println("Luas : ", luas)
+	persegi := Persegi{Sisi: 4}
+	luas = SeberapaLuas(persegi)
+	fmt.Println("Luas Persegi: ", luas)
 }
 
-func SeberapaLuas(bangunDatar PersegiPanjang) int {
-	return bangunDatar.HitungLuas()
-}
-
-func SeberapaLuas2(bangunDatar Persegi) int {
+func SeberapaLuas(bangunDatar BangunDatar) int {
 	return bangunDatar.HitungLuas()
 }
